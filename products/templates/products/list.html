@@ -1,0 +1,37 @@
+<!--- This file shows the product details -->
+
+{% extends 'products/main.html' %}
+
+{% block content %}
+
+<br>
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Products</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Product Name</th>
+							<th>Description</th>
+							<th>Manufacturer</th>
+							<th>inventory</th>
+						</tr>
+
+						{% for i in products %}
+							<tr>
+								<td> {{i.product_name}} </td>
+								<td> {{i.product_descryption}} </td>
+								<td> {{i.manufacturar_name}} </td>
+								<td> {{i.inventory_count}} </td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock %}

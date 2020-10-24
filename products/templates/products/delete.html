@@ -1,0 +1,26 @@
+{% extends 'products/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+	<p> You are about to delete "{{item}}", are you sure ?</p>
+
+	<form acti method="POST">
+		
+		{% csrf_token %}
+		
+	<a class = 'btn btn-warning'href="{% url 'delete_order' item.product_id %}">Cancel</a>
+
+		<input class = "btn btn-danger" type = "submit" name = "confirm">
+
+	</form>
+
+		</div>
+	</div>
+</div>
+{% endblock %}

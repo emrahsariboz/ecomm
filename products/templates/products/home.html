@@ -1,0 +1,71 @@
+<!-- This file shows the product details -->
+
+
+{% extends 'products/main.html' %}
+
+
+{% block content %}
+
+<br>
+		{% include 'products/status.html' %}	
+
+<div class = 'row'>
+	<div class = 'col-md-5'>
+		<h5> Number of Customers </h5>
+		<hr>
+		<div class = 'card card-body'>
+				<a class = 'btn btn-primary btn-sm btn-block' href = "{% url 'register' %}"> Register </a>
+				<table class = 'table table-sm'>
+					<tr>
+						<td></td>
+						<th>Customer</th>
+						<th>emails</th>
+					</tr>
+
+				{% for customer in  customers %}
+					<tr>
+						<td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
+						<td>{{ customer.username }}</td>
+						<td>{{ customer.email }}</td>
+					</tr>
+				{% endfor %}
+
+				</table>
+			</div>
+		</div>
+
+	<div class = 'col-md-7'>
+		<h5> Latest Orders </h5>
+		<hr>
+		<div class = 'card card-body'>
+				<a class = 'btn btn-primary btn-sm btn-block' href = "{% url 'create_order' %}" > Create Order </a>
+				<table class = 'table table-sm'>
+					<tr>
+						<th>Product ID</th>
+						<th>Who Ordered </th>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Date Created</th>
+						<th>Edit </th>
+						<th>Delete </th>
+					</tr>
+
+				{% for order in  orders %}
+					<tr>
+						<td>{{ order.product_id }}</td>
+						<td>{{ order.user_id_id }}</td>
+						<td>{{ order.product_name }}</td>
+						<td>{{ order.quantity }}</td>
+						<td>{{ order.date_created }}</td>
+						<td><a class="btn btn-sm btn-success" href="{% url 'update_order' order.user_id_id %}">View</a></td>
+					 	<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.product_id %}">Delete</a></td>
+					 </td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+		</div>	
+	</div>
+
+
+{% endblock %}

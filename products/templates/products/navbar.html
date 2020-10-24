@@ -1,0 +1,52 @@
+{% load static %}
+
+<style type="text/css">
+
+    .msg{
+      font-size: 18px;
+      color: #fff;
+      margin-right: 20px;
+    }
+
+    .navbar-brand{
+
+
+    }
+
+    #nav{
+        background-color: #000000;
+    }
+
+</style>
+
+<nav id = 'nav' class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <img class = 'navbar-brand' src="https://emrah-ecom-bucket.s3.us-east-2.amazonaws.com/images/logo3.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHgaCXVzLWVhc3QtMiJGMEQCIGHYnVqbyTMa%2FzLcK8X7YQ%2BPrHgk70YKZ4U6ZQvfg5wZAiBbTcsTFn8zmvCoDgRHVCCjaiue5rlasU1LnujxQiDqsyrNAgjB%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDM3NzA2ODIzODkzNSIMgguKivDXD7Qs%2BxPYKqECdhGtsWjc6oaGEGhW18XMAXDU4jkhqWpP%2Bmzu6QAhYKU3CXJaHa86meo4Dd96kVYn%2BQhuNbzpEFxrr6B4moEaQAoLi%2B2hi96kNf1MlzhjI7O86mOFqZ3SXK86bVWhfrTDe8qh%2FHrIFW1g6dwDe7ag2f%2BJoeCDSKUE7CZ2AAM9zsCVTVuqHChle00Ar3qGhtb5aYNBMUcgBsgHOkw25NS21syDqDYJX5UNOyun9SfsuiQqOIXH%2FSsm0d7xj8DIiCltGFimLOchwZ3AOgdwnG1pytWDNnovQ1VphpbE3fOiO0MH9zE9iUsbKSNSIXgs7gxa7jn077CfgJCFav3fJjgK3z4wHXfnulFyCWo3nstmhBSURYN7aAe0UPZ5U6165TXQCjDPo9H8BTqxAicsxZVIioyFHJHXZ3V0V6VEXu9Cwjx%2FcB%2Br7EqI%2B9EQIBdHmdOZN2Q4Jr%2F4OY1DlNuB7KzO4K2uOD3RMWtUj%2F%2Fqws7el7OpBOmP1IuRWZQnGmrB43W7OXbL%2BIPIDig%2B%2F8Jv7IEgDzwa7pV8cyW%2FYNM%2FfLa80C0i5UFCJ4L7LqbN%2BcxuBalghy78kUJYkEas9bRxaEQoZ0HXC5ra3%2BR1043SgXbPIy6cyyMkzmzz317sdNpTcTn7ViXZe1EhggsLqbE1SquEOXkICARGYigbOKLekLDcG%2BJKgZsDz94SjqI%2F0kc72iniSQFIx5PSlb6rAZRpMF9P%2B0XVo%2BswBq4s%2BIrSdDmtaHOih1CXJcKzy%2BrACpcVw2juJ95r%2FpX1BDmFWWLRTiJ5dNWDwnfg1LJygdHM&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201024T193239Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAVPSYEXBLYN7ODX4V%2F20201024%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=76949685a48b1326ed993b6e2daed21ba8d2c121f15ab5ac797c6ab61790fb8b">
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">Products</a>
+      </li> 
+      <li class="nav-item">
+        {% if user.is_authenticated %}
+      
+        {% else %}
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        {% endif %}
+
+      </li> 
+    </ul>
+</div>
+    <span class = "msg"> Hello, {{request.user}} </span>
+    <span class = "msg"><a class = "msg" href="{% url 'logout' %}">LogOut!</a></span>
+</nav>
+
